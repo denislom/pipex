@@ -6,7 +6,7 @@
 /*   By: dlom <dlom@student.42prague.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 18:03:41 by dlom              #+#    #+#             */
-/*   Updated: 2023/09/02 22:15:55 by dlom             ###   ########.fr       */
+/*   Updated: 2023/09/03 18:15:20 by dlom             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,36 @@ void	closepipe(int *fd)
 
 void	child_one(int *fd, char *argv[], char *envp[])
 {
-	int	fd;
+	int	cfd;
 
-	fd = open(argv[1], O_RDONLY);
-	if (fd == -1)
+	cfd = open(argv[1], O_RDONLY);
+	if (cfd == -1)
 		perror("Error when opening fd in child_one");
 	if (close(fd[0]) == -1)
 		perror("Error when closing fd[0] for read in child_one");
 	if (dup2(fd[0], STDOUT_FILENO) == -1)
 		perror("Error with first dup2 in child_one");
-	if (dup2(fd, STDIN_FILENO))
+	if (dup2(cfd, STDIN_FILENO))
 		perror("Error with second dup2 in child_one");
 	execute(argv[2], envp);
-	close(fd);
+	close(cfd);
 }
 
 void	child_two(int *fd, char *argv[], char *envp[])
 {
+	int	cfd;
 
+	cfd = open(argv[4], O_CREAT | O_RDWR | O_TRUNC, 0644);
+	if (cfd == -1)
+		perror("Error when opening fd in child_two.");
+	if (close(fd[1] == -1))
+		perror("Error when closing fd[1] in child_two.");
+	if (dup2(fd[0], STDIN_FILENO) == -1)
+		perror("Erro with first dup2 in child_two.");
+	if (dup2(cfd, STDOUT_FILENO) == -1)
+		perror("Error with second dup2 in child_two.");
+	execute(argv[3], envp);
+	close(cfd);
 }
 
 int	main(int argc, char *argv[], char *envp[])
@@ -61,6 +73,7 @@ int	main(int argc, char *argv[], char *envp[])
 		perror("Error when forking pid2. :(");
 	if (pid2 == 0)
 		child_two(fd, argv, envp);
+	closepipe(fd);
 	waitpid(pid2, 0, 0);
 	return(0);
 }
