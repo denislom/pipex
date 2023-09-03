@@ -6,12 +6,13 @@
 #    By: dlom <dlom@student.42prague.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/02 18:19:36 by dlom              #+#    #+#              #
-#    Updated: 2023/09/03 18:19:39 by dlom             ###   ########.fr        #
+#    Updated: 2023/09/03 21:49:49 by dlom             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-SRCS		=	pipex.c pipex_utils.c
+SRCS		=	pipex.c pipex_utils.c ft_split.c ft_strdup.c ft_strlen.c \
+				ft_strncmp.c
 OBJS		=	${SRCS:.c=.o}
 NAME		=	pipex
 INCS		=	pipex.h
