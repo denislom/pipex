@@ -6,7 +6,7 @@
 /*   By: dlom <dlom@student.42prague.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 16:15:18 by dlom              #+#    #+#             */
-/*   Updated: 2023/09/02 22:15:51 by dlom             ###   ########.fr       */
+/*   Updated: 2023/09/03 18:18:25 by dlom             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,6 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include <stdlib.h>
 
 #endif

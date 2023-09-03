@@ -6,11 +6,19 @@
 /*   By: dlom <dlom@student.42prague.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 18:03:41 by dlom              #+#    #+#             */
-/*   Updated: 2023/09/03 18:15:20 by dlom             ###   ########.fr       */
+/*   Updated: 2023/09/03 21:11:41 by dlom             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+/*
+https://csnotes.medium.com/pipex-tutorial-42-project-4469f5dd5901
+https://dev.to/herbievine/42-a-comprehensive-guide-to-pipex-5165
+
+ pipe fork dup exec explained 
+https://www.youtube.com/watch?v=pO1wuN3hJZ4
+*/
 
 void	closepipe(int *fd)
 {
