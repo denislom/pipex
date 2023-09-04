@@ -6,7 +6,7 @@
 /*   By: dlom <dlom@student.42prague.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 18:03:41 by dlom              #+#    #+#             */
-/*   Updated: 2023/09/03 21:11:41 by dlom             ###   ########.fr       */
+/*   Updated: 2023/09/04 21:35:35 by dlom             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	child_one(int *fd, char *argv[], char *envp[])
 		perror("Error when opening fd in child_one");
 	if (close(fd[0]) == -1)
 		perror("Error when closing fd[0] for read in child_one");
-	if (dup2(fd[0], STDOUT_FILENO) == -1)
+	if (dup2(fd[1], STDOUT_FILENO) == -1)
 		perror("Error with first dup2 in child_one");
 	if (dup2(cfd, STDIN_FILENO))
 		perror("Error with second dup2 in child_one");
