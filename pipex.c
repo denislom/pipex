@@ -6,7 +6,7 @@
 /*   By: dlom <dlom@student.42prague.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 18:03:41 by dlom              #+#    #+#             */
-/*   Updated: 2023/09/04 21:35:35 by dlom             ###   ########.fr       */
+/*   Updated: 2023/09/12 22:23:16 by dlom             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	child_two(int *fd, char *argv[], char *envp[])
 	cfd = open(argv[4], O_CREAT | O_RDWR | O_TRUNC, 0644);
 	if (cfd == -1)
 		perror("Error when opening fd in child_two.");
-	if (close(fd[1] == -1))
+	if (close(fd[1]) == -1)
 		perror("Error when closing fd[1] in child_two.");
 	if (dup2(fd[0], STDIN_FILENO) == -1)
 		perror("Erro with first dup2 in child_two.");
@@ -83,5 +83,5 @@ int	main(int argc, char *argv[], char *envp[])
 		child_two(fd, argv, envp);
 	closepipe(fd);
 	waitpid(pid2, 0, 0);
-	return(0);
+	return (0);
 }
