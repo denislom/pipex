@@ -6,7 +6,7 @@
 /*   By: dlom <dlom@student.42prague.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 16:15:18 by dlom              #+#    #+#             */
-/*   Updated: 2023/09/12 20:23:47 by dlom             ###   ########.fr       */
+/*   Updated: 2023/09/12 22:29:19 by dlom             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
-# include <stddef.h>
 
 char	**ft_split(char const *s, char c);
 char	*ft_strdup(char *src);
