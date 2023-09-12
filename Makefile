@@ -6,35 +6,52 @@
 #    By: dlom <dlom@student.42prague.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/02 18:19:36 by dlom              #+#    #+#              #
-#    Updated: 2023/09/10 22:10:10 by dlom             ###   ########.fr        #
+#    Updated: 2023/09/12 22:33:30 by dlom             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-SRCS		=	pipex.c pipex_utils.c ft_split.c ft_strdup.c ft_strlen.c \
-				ft_strncmp.c ft_strjoin.c
-OBJS		=	${SRCS:.c=.o}
-NAME		=	pipex
-INCS		=	pipex.h
-LIBC		=	ar rc
-RM			=	rm -f
-CC			=	gcc
-CFLAGS		=	-Wall -Wextra -Werror
+# env
+PROGRAM = pipex
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+RM = rm -rf
 
-all: ${NAME}
+# header for pipex
+HEADER = pipex.h
 
-%.o: %.c ${INCS}
-	${CC} ${CFLAGS} -c ${SRCS}
+# main part of pipex
+SRC_M = pipex.c pipex_utils.c
+OBJ_M = $(SRC_M:.c=.o)
 
-$(NAME): ${OBJS}
-	${LIBC} ${NAME} ${OBJS}
+# functions from libft
+SRC_LIBFT = ft_split.c \
+			ft_strdup.c \
+			ft_strncmp.c \
+			ft_substr.c \
+			ft_strjoin.c \
+			ft_strlen.c 
+OBJ_LIBFT = $(SRC_LIBFT:.c=.o)
 
-clean: 
-	${RM} ${OBJS}
 
-fclean: clean
-	${RM} ${NAME}
+# make
+%.o: %.c 		$(HEADER) Makefile
+						@$(CC) $(FLAGS) -c $< -o $@
 
-re: fclean all
+(PROGRAM):		$(OBJ_M) $(OBJ_LIBFT) $(OBJ_GNL)
+						@echo "Give me a second, I am not your slave!"
+						@$(CC) $(OBJ_M) $(OBJ_LIBFT) -o $(PROGRAM)
+						@echo "$(PROGRAM) created!"
 
-.PHONY:	all clean fclean re
+all: $(PROGRAM)
+
+clean:
+						@$(RM) $(OBJ_M)
+						@$(RM) $(OBJ_LIBFT)
+						@echo "Object files deleted!"
+
+fclean:			clean
+						@$(RM) $(PROGRAM)
+						@echo "Everything was deleted!"
+
+re:				fclean all
