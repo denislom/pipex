@@ -6,7 +6,7 @@
 /*   By: dlom <dlom@student.42prague.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 18:03:41 by dlom              #+#    #+#             */
-/*   Updated: 2023/09/13 22:42:05 by dlom             ###   ########.fr       */
+/*   Updated: 2023/09/13 23:19:46 by dlom             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ https://www.youtube.com/watch?v=6xbLgZpOBi8
 
 CodeVault: How to execute another program (*envp[] explained)
 https://youtu.be/OVFEWSP7n8c?feature=shared
+https://learn.microsoft.com/en-us/cpp/c-language/
+arguments-to-main?view=msvc-170
 */
 
 void	closepipe(int *fd)
