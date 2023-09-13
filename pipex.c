@@ -6,7 +6,7 @@
 /*   By: dlom <dlom@student.42prague.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 18:03:41 by dlom              #+#    #+#             */
-/*   Updated: 2023/09/12 22:23:16 by dlom             ###   ########.fr       */
+/*   Updated: 2023/09/13 22:42:05 by dlom             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@ https://dev.to/herbievine/42-a-comprehensive-guide-to-pipex-5165
 
  pipe fork dup exec explained 
 https://www.youtube.com/watch?v=pO1wuN3hJZ4
+
+CodeVault: pipe | explained very well
+https://www.youtube.com/watch?v=6xbLgZpOBi8
+
+CodeVault: How to execute another program (*envp[] explained)
+https://youtu.be/OVFEWSP7n8c?feature=shared
 */
 
 void	closepipe(int *fd)
